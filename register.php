@@ -4,7 +4,10 @@ require "conn.php";
 function createUser ($firstname, $lastname, $username, $password){
     $conn = connection();
     $password = password_hash($password, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO customer (`first_name`, `last_name`, `username`, `password`) VALUES ('$firstname', '$lastname', '$username', '$password')";
+    $sql = "INSERT INTO customer (`first_name`, `last_name`, `username`, `password`)
+            VALUES ('$firstname', '$lastname', '$username', '$password')";
+
+            
 //CHECK CONNECTION 
     if ($conn->query($sql)){
         header("location: login.php");
