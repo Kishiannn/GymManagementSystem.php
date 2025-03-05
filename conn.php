@@ -16,9 +16,8 @@ function connection (){
     if ($conn->connect_error) {
         die("Connection failed: " .$conn->connect_error);
         //die is a function that terminates a function while printing a message
-    }else{
+    }
         return $conn;
         //If there is no error, retain the conn object
     }
-}
 ?>
