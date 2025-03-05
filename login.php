@@ -1,11 +1,11 @@
 <?php 
-
 require "conn.php";
 
 function login($username, $password){
-
     $conn = connection();
-    $sql = "SELECT username,password FROM customer WHERE username ='$username' ";
+    $sql = "SELECT customer_id, username, password
+            FROM customer 
+            WHERE username = '$username'";
 
 
     if ($result = $conn->query($sql)) {
@@ -14,14 +14,14 @@ function login($username, $password){
             $customer = $result->fetch_assoc();
             //contains the specific date pulled via fectch request $result
             #check if the password is correct
-            if(password_verify($password, $customer["password"])){                
+            if(password_verify($password, $customer['password'])){                
                 session_start();
 
-                $_SESSION["id"] = $customer["id"];
+                $_SESSION["customer_id"] = $customer["customer_id"];
                 $_SESSION["username"] = $customer["username"];
                 $_SESSION["full_name"] = $customer["first_name"] ." ". $customer["last_name"];
 
-                header("location: index.php");
+                header("location: customer_homepage.php");
                 exit;
             } 
             else{
@@ -31,7 +31,7 @@ function login($username, $password){
                 echo '<div class="alert alert-danger"> Username not found </div>';
         }
     }           else{
-       die("Error retrieving the user: " . $conn->error);
+        die("Error retrieving the user: . $conn->error ");
 }
 }
         
@@ -64,7 +64,8 @@ if(isset($_POST["btn_login"])) {
                 </div>
                 <div class="card-body">
                     <form action="" method="post">
-                        <div class="mb-5"><label for="username" class="form-label small fw-bold">Username</label><input type="text" name="username" id="username" maxlenght="15" required  class="form-control fw-bold">
+                        <div class="mb-5"><label for="username" class="form-label small fw-bold">Username</label>
+                        <input type="text" name="username" id="username" maxlenght="15" required  class="form-control fw-bold">
                     </div>
                         <div class="mb-5"><label for="password" class="form-label small fw-bold">Password</label>
                         <input type="password" name="password" id="password" class="form-control mb-2" required>    
