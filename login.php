@@ -1,83 +1,94 @@
-<?php 
+<?php
 require "conn.php";
 
 function login($username, $password){
     $conn = connection();
-    $sql = "SELECT customer_id, username, password
-            FROM customer 
-            WHERE username = '$username'";
+    $sql = "SELECT username,password FROM users WHERE username = '$username' ";
+    
 
+    if($result = $conn->query($sql)){
+        if($result->num_rows == 1){
+            $user = $result ->fetch_assoc();
+           
 
-    if ($result = $conn->query($sql)) {
-        #check if there is a query result (did the username exist)
-        if ($result->num_rows == 1) {
-            $customer = $result->fetch_assoc();
-            //contains the specific date pulled via fectch request $result
-            #check if the password is correct
-            if(password_verify($password, $customer['password'])){                
+            if(password_verify($password, $user["password"])){
+
                 session_start();
 
-                $_SESSION["customer_id"] = $customer["customer_id"];
-                $_SESSION["username"] = $customer["username"];
-                $_SESSION["full_name"] = $customer["first_name"] ." ". $customer["last_name"];
+                $_SESSION['id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['full_name'] = $user['first_name'] . ' '. $user['last_name'];
 
-                header("location: customer_homepage.php");
+                
+                header('location: index.php');
                 exit;
-            } 
-            else{
+            }else{
                 echo '<div class="alert alert-danger">Incorrect password.</div>';  
             }
             }else{
                 echo '<div class="alert alert-danger"> Username not found </div>';
         }
-    }           else{
-        die("Error retrieving the user: . $conn->error ");
+    }else{
+        die("Error retrieving the user: . $conn -> error ");
 }
 }
-        
-    
 
-if(isset($_POST["btn_login"])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
 
-    login($username, $password);
+
+if(isset($_POST["btn_login"]))
+{ 
+    $username =$_POST['username'];
+    $password =$_POST['password'];
+
+    login( $username, $password);
 }
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<title>Log in</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Log in</title>
 </head>
-<body class="bg-light">
-<div style="height: 100vh;">
-        <div class="row h-100 m-0">
-            <div class="card w-25 mx-auto my-auto p-0x">
-                 <div class="card header text-primary">  
-                <h1 class="card-title text-center bg.light mb-0">Sibin Ilibin </h1>
+<style>
+    body{
+      overflow-y: hidden; /* Removes vertical scroll */
+            margin: 0;
+            padding: 0;
+    }
+    </style>
+<body>
+<body class="bg-black">
+    <div style="height: 150vh;">
+        <div class="row h-50 m-5">
+            <div class="card text-bg-dark mb-3" style="max-width: 25%; height: 600px; margin: auto; padding: 10;">
+                
+            
+                <h1 class="card-title text-center mb-0" style="position: absolute; top: 20px; left: 130px; font-weight: bold;">Gym</h1>
+                <div class="card header text-primary" style="position: absolute; left: 220px; width: 100px; margin-top: 20px; background-color: orange;">  
+                <h1 class="card-title text-center mb-0 " style="font-weight: bold; color: black;">Hub</h1>
                 </div>
-                <div class="card-body">
+
+                <div class="card-body" style="margin-top: 90px;">
+                <hr>
                     <form action="" method="post">
-                        <div class="mb-5"><label for="username" class="form-label small fw-bold">Username</label>
-                        <input type="text" name="username" id="username" maxlenght="15" required  class="form-control fw-bold">
+                    <div class="mb-3">
+                        <label for="username" class="form-label large fw-bold" style="margin-top: 40px">Username</label>
+                        <input type="text" name="username" id="username" maxlength="15" required  class="form-control fw-bold">
                     </div>
-                        <div class="mb-5"><label for="password" class="form-label small fw-bold">Password</label>
-                        <input type="password" name="password" id="password" class="form-control mb-2" required>    
+                    <div class="mb-3">
+                        <label for="password" class="form-label large fw-bold">Password</label>
+                        <input type="password" name="password" id="password" class="form-control mb-2" required>
                     </div>
-                    <button type="submit" name="btn_login" class="btn btn-primary w-100">Log-In</button>
+                    <button type="submit" name="btn_login" class="btn btn-dark w-100" 
+                    style="height: 60px; font-size: 20px; font-weight: bold; color: orange;
+                    border: 2px solid black; margin-top: 70px">Log-in</button>
                     </form>
                 </div>
             </div>            
         </div>     
     </div>
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
