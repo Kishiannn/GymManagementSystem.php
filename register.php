@@ -4,10 +4,7 @@ require "conn.php";
 function createUser ($firstname, $lastname, $username, $password){
     $conn = connection();
     $password = password_hash($password, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO customer (`first_name`, `last_name`, `username`, `password`)
-            VALUES ('$firstname', '$lastname', '$username', '$password')";
-
-            
+    $sql = "INSERT INTO users (`first_name`, `last_name`, `username`, `password`) VALUES ('$firstname', '$lastname', '$username', '$password')";
 //CHECK CONNECTION 
     if ($conn->query($sql)){
         header("location: login.php");
@@ -34,16 +31,6 @@ if(isset($_POST['btn_signup']) ){
 
 }
 ?>
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,36 +39,42 @@ if(isset($_POST['btn_signup']) ){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Sign up</title>
 </head>
-<body class="bg-light">
-    <div style="height: 100vh;">
-        <div class="row h-100 m-0">
-            <div class="card w-25 mx-auto my-auto p-0x">
-                 <div class="card header text-success">  
-                <h1 class="card-title h3 mb-0"> Create your Account </h1>
+<style>
+    body{
+      overflow-y: hidden; /* Removes vertical scroll */
+            margin: 0;
+            padding: 0;
+    }
+    </style>
+<body class="bg-black">
+    <div style="height: 180vh;">
+        <div class="row h-50 m-0">
+            <div class="card text-bg-dark mb-3" style="max-width: 30%; height: 710px; margin: auto; padding: 10;">
+                 <div class="card header text-success" style="margin-top: 30px">  
+                <h1 class=" h2 mb-0" style="display: flex; justify-content: center; background-color: orange; color: black; font-weight: bold; padding: 10px"> Create your Account </h1>
                 </div>
                 <div class="card-body">
-                    <form action="" method="post">
-                        <div class="mb-3"><label for="first-name" class="form-label small fw-bold">First Name</label><input type="text" name="first_name" id="first-name" maxlenght="50" required autofocus class="form-control fw-bold">
+                    <hr>
+                    <form action="" method="post" style="margin-top: 50px">
+                        <div class="mb-3"><label for="first-name" class="form-label large fw-bold">First Name</label><input type="text" name="first_name" id="first-name" maxlength="50" required autofocus class="form-control fw-bold">
                     </div>
-                        <div class="mb-3"><label for="last-name" class="form-label small fw-bold">Last Name</label><input type="text" name="last_name" id="last-name" maxlenght="50" required  class="form-control fw-bold">
+                        <div class="mb-3"><label for="last-name" class="form-label large fw-bold">Last Name</label><input type="text" name="last_name" id="last-name" maxlength="50" required  class="form-control fw-bold">
                     </div>
-                        <div class="mb-3"><label for="username" class="form-label small fw-bold">Username</label><input type="text" name="username" id="username" maxlenght="15" required  class="form-control fw-bold">
+                        <div class="mb-3"><label for="username" class="form-label large fw-bold">Username</label><input type="text" name="username" id="username" maxlength="15" required  class="form-control fw-bold">
                     </div>
-                        <div class="mb-3"><label for="password" class="form-label small fw-bold">Password</label>
-                        <input type="password" name="password" id="password" class="form-control mb-2" required>    
+                        <div class="mb-3"><label for="password" class="form-label large fw-bold">Password</label>
+                        <input type="password" name="password" id="password" class="form-control mb-2" required>
                     </div>
-                        <div class="mb-5"><label for="confirm-password" class="form-label small fw-bold">Confirm Password</label><input type="password" name="confirm_password" id="confirm-password" class="form-control mb-2" required>
+                        <div class="mb-5"><label for="confirm-password" class="form-label large fw-bold">Confirm Password</label><input type="password" name="confirm_password" id="confirm-password" class="form-control mb-2" required>
                     </div>
-                    <button type="submit" name="btn_signup" class="btn btn-success w-100">Submit</button>
+                    <button type="submit" name="btn_signup" class="btn btn-dark w-100" 
+                    style="height: 60px; font-size: 20px; font-weight: bold; color: orange;
+                    border: 2px solid black;">Submit</button>
                     </form>
                 </div>
             </div>            
         </div>     
     </div>
-
-
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
