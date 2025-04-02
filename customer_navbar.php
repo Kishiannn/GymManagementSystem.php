@@ -1,15 +1,18 @@
-<nav class="navbar" rel="stylesheet" style="width: 20%; height: 1000px; background-color: orange">
-        <div class="container">
+<style>
+    body{
+      overflow-y: hidden; /* Removes vertical scroll */
+            margin: 0;
+            padding: 0;
+    }
+    </style>
+<nav class="navbar" rel="stylesheet" style="bottom: 17px; width: 20%; height: 1000px; background-color:rgb(31, 36, 36)">
+        <div class="container" style= "position: absolute; top: 3px;">
         <!--Brand -->
         <a href="" class="navbar-brand">
-            <h4 class="mb-o text-uppercase" style="position: absolute; top: 30px;">SIGBIN 11</h4>
+                <h1 class="card-title text-center mb-0" style="position: absolute;top: 25px; left: 40px; font-weight: bold;">Gym</h1>
+                <div class="card header text-primary" style="position: absolute; left: 130px; width: 100px; top: 15px; background-color: orange;">  
+                <h1 class="card-title text-center mb-0 " style="font-weight: bold; color: black;">Hub</h1>
         </a>
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a href="profile.php" class="nav-link">
-                <?= $_SESSION['username']  ?>
-            </a></li>
-            <button type="button" class="btn btn-danger fw-bold fs-6 py-4 w-100 " style="position: absolute; bottom: 130px; right: 0px ">Log Out</button>
-        </ul>
         </div>
         <div class="container d-flex flex-column" style="position: absolute; top: 150px;">
         <!-- As a link -->
@@ -39,6 +42,6 @@
                 <span class="navbar-brand">Contact Us</span>
             </div>
         </nav>
+        <button type="button" class="btn btn-danger fw-bold fs-6 py-4 w-100" style="position: absolute; width: 50px height: 20px; right: 12px; top: 470px;">Log Out</button>
         </div>
     </nav>
-
