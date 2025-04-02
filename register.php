@@ -49,27 +49,37 @@ if(isset($_POST['btn_signup']) ){
 <body class="bg-black">
     <div style="height: 180vh;">
         <div class="row h-50 m-0">
-            <div class="card text-bg-dark mb-3" style="max-width: 30%; height: 710px; margin: auto; padding: 10;">
+            <div class="card text-bg-dark mb-3" style="max-width: 50%; height: 650px; margin: auto; padding: 10;">
                  <div class="card header text-success" style="margin-top: 30px">  
                 <h1 class=" h2 mb-0" style="display: flex; justify-content: center; background-color: orange; color: black; font-weight: bold; padding: 10px"> Create your Account </h1>
                 </div>
                 <div class="card-body">
                     <hr>
-                    <form action="" method="post" style="margin-top: 50px">
-                        <div class="mb-3"><label for="first-name" class="form-label large fw-bold">First Name</label><input type="text" name="first_name" id="first-name" maxlength="50" required autofocus class="form-control fw-bold">
+                    <form action="" method="post" style="margin-top: 20px">
+                        <div class="mb-3"><label for="first-name" class="form-label large fw-bold">First Name</label>
+                        <input type="text" name="first_name" id="first-name" maxlength="30" required autofocus class="form-control fw-bold" style="width: 22vw">
+
                     </div>
-                        <div class="mb-3"><label for="last-name" class="form-label large fw-bold">Last Name</label><input type="text" name="last_name" id="last-name" maxlength="50" required  class="form-control fw-bold">
+                        <div class="mb-3"><label for="last-name" class="form-label large fw-bold" style="position: absolute; top: 145px; left: 25vw;">Last Name</label>
+                        <input type="text" name="last_name" id="last-name" maxlength="30" required  class="form-control fw-bold" style="position: absolute; width: 23vw; top: 175px; left: 25vw;">
+
                     </div>
-                        <div class="mb-3"><label for="username" class="form-label large fw-bold">Username</label><input type="text" name="username" id="username" maxlength="15" required  class="form-control fw-bold">
+                        <div class="mb-3"><label for="username" class="form-label large fw-bold">Username</label>
+                        <input type="text" name="username" id="username" maxlength="15" required  class="form-control fw-bold">
+
                     </div>
                         <div class="mb-3"><label for="password" class="form-label large fw-bold">Password</label>
                         <input type="password" name="password" id="password" class="form-control mb-2" required>
+
                     </div>
                         <div class="mb-5"><label for="confirm-password" class="form-label large fw-bold">Confirm Password</label><input type="password" name="confirm_password" id="confirm-password" class="form-control mb-2" required>
                     </div>
                     <button type="submit" name="btn_signup" class="btn btn-dark w-100" 
                     style="height: 60px; font-size: 20px; font-weight: bold; color: orange;
                     border: 2px solid black;">Submit</button>
+                    <a href="http://localhost/GymSystem/login.php">
+                    <h3 class="Register Btn" style="position: relative; font-size: 15px; color: white; left: 265px; top: 20px;">Back to Login Page</h3>
+                    </a>
                     </form>
                 </div>
             </div>            
