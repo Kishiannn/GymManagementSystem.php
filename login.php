@@ -65,8 +65,8 @@ if(isset($_POST["btn_login"]))
             <div class="card text-bg-dark mb-3" style="max-width: 25%; height: 600px; margin: auto; padding: 10;">
                 
             
-                <h1 class="card-title text-center mb-0" style="position: absolute; top: 20px; left: 130px; font-weight: bold;">Gym</h1>
-                <div class="card header text-primary" style="position: absolute; left: 220px; width: 100px; margin-top: 20px; background-color: orange;">  
+                <h1 class="card-title text-center mb-0" style="position: absolute; top: 20px; left: 80px; font-weight: bold;">Gym</h1>
+                <div class="card header text-primary" style="position: absolute; left: 170px; width: 100px; margin-top: 20px; background-color: orange;">  
                 <h1 class="card-title text-center mb-0 " style="font-weight: bold; color: black;">Hub</h1>
                 </div>
 
@@ -84,6 +84,9 @@ if(isset($_POST["btn_login"]))
                     <button type="submit" name="btn_login" class="btn btn-dark w-100" 
                     style="height: 60px; font-size: 20px; font-weight: bold; color: orange;
                     border: 2px solid black; margin-top: 70px">Log-in</button>
+                    <a href="http://localhost/GymManagementSystem/register.php">
+                    <h3 class="Register Btn" style="position: relative; font-size: 10px; color: white; left: 105px; top: 10px;">Register Here</h3>
+                    </a>
                     </form>
                 </div>
             </div>            
