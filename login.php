@@ -62,13 +62,14 @@ if(isset($_POST["btn_login"]))
 <body class="bg-black">
     <div style="height: 150vh;">
         <div class="row h-50 m-5">
-            <div class="card text-bg-dark mb-3" style="max-width: 25%; height: 600px; margin: auto; padding: 10;">
+            <div class="card text-bg-dark mb-3" style="max-width: 50%; height: 500px; margin: auto; padding: 10;">
                 
             
-                <h1 class="card-title text-center mb-0" style="position: absolute; top: 20px; left: 80px; font-weight: bold;">Gym</h1>
-                <div class="card header text-primary" style="position: absolute; left: 170px; width: 100px; margin-top: 20px; background-color: orange;">  
+                <h1 class="card-title text-center mb-0" style="position: absolute; top: 20px; left: 250px; font-weight: bold;">Gym</h1>
+                <div class="card header text-primary" style="position: absolute; left: 340px; width: 100px; margin-top: 20px; background-color: orange;">  
                 <h1 class="card-title text-center mb-0 " style="font-weight: bold; color: black;">Hub</h1>
                 </div>
+                <h3 style="position: absolute; font-size: 20px; top: 65px; left: 220px;">Gym Management System</h3>
 
                 <div class="card-body" style="margin-top: 90px;">
                 <hr>
@@ -83,9 +84,9 @@ if(isset($_POST["btn_login"]))
                     </div>
                     <button type="submit" name="btn_login" class="btn btn-dark w-100" 
                     style="height: 60px; font-size: 20px; font-weight: bold; color: orange;
-                    border: 2px solid black; margin-top: 70px">Log-in</button>
-                    <a href="http://localhost/GymManagementSystem/register.php">
-                    <h3 class="Register Btn" style="position: relative; font-size: 10px; color: white; left: 105px; top: 10px;">Register Here</h3>
+                    border: 2px solid black; margin-top: 20px">Log-in</button>
+                    <a href="http://localhost/GymSystem/register.php">
+                    <h3 class="Register Btn" style="position: relative; font-size: 15px; color: white; left: 257px; top: 10px;">Register Here</h3>
                     </a>
                     </form>
                 </div>
